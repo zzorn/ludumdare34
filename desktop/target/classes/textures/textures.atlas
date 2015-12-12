@@ -1,0 +1,22 @@
+
+textures.png
+size: 256,128
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+rectangle
+  rotate: false
+  xy: 128, 64
+  size: 64, 64
+  split: 10, 9, 9, 8
+  pad: 0, 0, 0, 0
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+white_ball
+  rotate: false
+  xy: 0, 0
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
