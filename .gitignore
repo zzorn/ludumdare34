@@ -1,4 +1,11 @@
 
+### Generated code
+
+core/target/
+android/target/
+desktop/target/
+
+
 ## gedit temp files
 *.*~
 
