@@ -1,12 +1,12 @@
 package org.ld34.core.map.render
 
 import org.ld34.core.map.GameMap
-import org.ld34.core.util.Rendering
+import org.ld34.core.util.AreaRendering
 
 /**
  *
  */
-interface MapRenderer : Rendering {
+interface MapRenderer : AreaRendering {
 
     val camera: MapCamera
 

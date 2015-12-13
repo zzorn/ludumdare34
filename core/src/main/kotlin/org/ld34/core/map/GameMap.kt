@@ -13,7 +13,7 @@ class GameMap(val generators: MutableList<MapGenerator> = ArrayList(),
     // TODO: Remove oldest chunks? Save objects in them?
     private val chunkCache: MutableMap<Int3, MapChunk> = LinkedHashMap()
 
-    fun get(pos: Int3): Tile? = getMapChunkAtPos(pos)[pos]
+    operator fun get(pos: Int3): Tile? = getMapChunkAtPos(pos)[pos]
 
 
     fun getMapChunkAtPos(pos: Int3): MapChunk {
@@ -33,6 +33,8 @@ class GameMap(val generators: MutableList<MapGenerator> = ArrayList(),
     }
 
     private fun createChunk(chunkPos: Int3): MapChunk {
+        println("Creating chunk at $chunkPos")
+
         val chunk = MapChunk(chunkPos, chunkSize)
 
         for (generator in generators) {

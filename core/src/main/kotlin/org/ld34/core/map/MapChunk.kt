@@ -35,6 +35,7 @@ class MapChunk(val offset: Int3 = Int3(),
             for (y in start.y .. end.y-1) {
                 for (x in start.x .. end.x-1) {
                     pos.set(x, y, z)
+                    pos.add(offset)
                     tileCalculator(pos, getOrCreateTile(pos))
                 }
             }
@@ -53,9 +54,13 @@ class MapChunk(val offset: Int3 = Int3(),
         val p = pos - offset
 
         // Check that we are inside the map section
-        if (p.inRange(size)) throw IllegalArgumentException("The position $pos is outside this MapSection ($this)")
+        if (!p.inRange(size)) throw IllegalArgumentException("The position $pos (locally $p) is outside this MapSection ($this)")
 
         // Calculate index
         return p.scaleSum(1, size.x, size.x * size.y)
+    }
+
+    override fun toString(): String {
+        return "MapChunk(offset: $offset, size: $size)"
     }
 }

@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.GL30
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.graphics.g2d.TextureAtlas
 import com.badlogic.gdx.graphics.g2d.TextureRegion
+import org.flowutils.rectangle.MutableRectangle
+import org.flowutils.rectangle.Rectangle
 import org.ld34.core.map.BlockType
 import org.ld34.core.map.GameMap
 import org.ld34.core.map.generators.GroundGenerator
@@ -23,6 +25,7 @@ class Main : ApplicationListener {
 
     private lateinit var mapRenderer: MapRenderer
     private lateinit var atlas: TextureAtlas
+    private lateinit var mapArea: Rectangle
 
     override fun create() {
         println("Main.create test")
@@ -37,9 +40,11 @@ class Main : ApplicationListener {
         plant_leaf2 = atlas.findRegion("plant_leaf2")
 
         // Create map
-        val gameMap = GameMap(arrayListOf(GroundGenerator(BlockType.SMALL_BRICK)))
+        val gameMap = GameMap(arrayListOf(GroundGenerator(BlockType.SMALL_BRICK_CARVED)))
 
         // Create map renderer
+        mapArea = MutableRectangle(Gdx.graphics.width.toDouble(),
+                                   Gdx.graphics.height.toDouble())
         mapRenderer = IsometricMapRenderer(gameMap)
 
         println("Main.create - pic loaded")
@@ -57,7 +62,7 @@ class Main : ApplicationListener {
 
         batch.begin()
 
-        mapRenderer.render(batch, atlas)
+        mapRenderer.render(batch, atlas, mapArea)
 
         /*
         val tileSize = 128f

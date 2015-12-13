@@ -8,7 +8,7 @@ import org.ld34.core.util.Int3
  *
  */
 class GroundGenerator(var groundType: BlockType,
-                      var groundHeightZ: Int = 3) : MapGenerator {
+                      var groundHeightZ: Int = 0) : MapGenerator {
 
     override fun populate(chunk: MapChunk) {
         val end = Int3(chunk.size)
