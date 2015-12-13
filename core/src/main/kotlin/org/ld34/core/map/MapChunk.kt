@@ -14,6 +14,11 @@ class MapChunk(val offset: Int3 = Int3(),
     operator fun set(pos: Int3, tile: Tile) { tiles[indexOf(pos)] = tile }
     operator fun get(pos: Vector3): Tile? = tiles[indexOf(pos)]
 
+    val start: Int3
+       get() = offset
+
+    val end: Int3 = offset + size - Int3(1, 1, 1)
+
     fun getOrCreateTile(pos: Int3, blockType: BlockType = BlockType.AIR): Tile {
         var tile = get(pos)
         if (tile == null) {

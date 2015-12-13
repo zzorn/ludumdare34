@@ -11,6 +11,7 @@ import org.flowutils.rectangle.Rectangle
 import org.ld34.core.map.BlockType
 import org.ld34.core.map.GameMap
 import org.ld34.core.map.generators.GroundGenerator
+import org.ld34.core.map.generators.PillarGenerator
 import org.ld34.core.map.render.IsometricMapRenderer
 import org.ld34.core.map.render.MapRenderer
 
@@ -40,7 +41,9 @@ class Main : ApplicationListener {
         plant_leaf2 = atlas.findRegion("plant_leaf2")
 
         // Create map
-        val gameMap = GameMap(arrayListOf(GroundGenerator(BlockType.SMALL_BRICK_CARVED)))
+        val gameMap = GameMap(arrayListOf(
+                GroundGenerator(BlockType.SMALL_BRICK_SMOOTH),
+                PillarGenerator(BlockType.SMALL_BRICK, BlockType.SMALL_BRICK_CARVED)))
 
         // Create map renderer
         mapArea = MutableRectangle(Gdx.graphics.width.toDouble(),

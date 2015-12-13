@@ -67,13 +67,13 @@ class IsometricMapRenderer(override var gameMap: GameMap,
                 }
 
                 // Normal row
-                screenPos.set(-tileScreenSize.x, y * tileScreenSize.y + z * tileScreenSize.z)
+                screenPos.set(-tileScreenSize.x, y * tileScreenSize.y + z * tileScreenSize.z * 0.5f)
                 worldPos.set(upperLeftWordPos)
                 worldPos.add(worldPosDeltaDownInScreen * y)
                 renderRow()
 
                 // Offset row
-                screenPos.set(-tileScreenSize.x*0.5f, (y - 0.5f) * tileScreenSize.y + z * tileScreenSize.z)
+                screenPos.set(-tileScreenSize.x*0.5f, (y - 0.5f) * tileScreenSize.y + z * tileScreenSize.z * 0.5f)
                 worldPos.set(upperLeftWordPos)
                 worldPos.add(worldPosDeltaDownInScreen * y)
                 worldPos.add(worldPosRowOffsetInScreen)
@@ -83,7 +83,7 @@ class IsometricMapRenderer(override var gameMap: GameMap,
         }
 
         for (z in 0 .. gameMap.chunkSize.z-1)
-            renderLayer(z - worldPosAtCenter.z)
+            renderLayer(z)
     }
 
     //fun screenToWorld(screenPos: Int3, worldPos: Int3) {
