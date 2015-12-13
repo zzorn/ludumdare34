@@ -1,9 +1,30 @@
 
 textures.png
-size: 512,128
+size: 1024,128
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
+ground1
+  rotate: false
+  xy: 128, 80
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+ground2
+  rotate: false
+  xy: 128, 32
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+ground3
+  rotate: false
+  xy: 176, 80
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
 jungle_ground
   rotate: false
   xy: 0, 0
@@ -27,105 +48,105 @@ plant_leaf2
   index: -1
 plant_stem
   rotate: false
-  xy: 416, 16
+  xy: 224, 64
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
   index: -1
 small_brick1
   rotate: false
-  xy: 128, 80
+  xy: 176, 32
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 small_brick2
   rotate: false
-  xy: 128, 32
+  xy: 256, 80
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 small_brick3
   rotate: false
-  xy: 176, 80
+  xy: 304, 80
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 small_brick4
   rotate: false
-  xy: 176, 32
+  xy: 352, 80
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 small_brick_carved1
   rotate: false
-  xy: 224, 80
+  xy: 400, 80
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 small_brick_carved2
   rotate: false
-  xy: 224, 32
+  xy: 448, 80
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 small_brick_carved3
   rotate: false
-  xy: 272, 80
+  xy: 496, 80
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 small_brick_carved4
   rotate: false
-  xy: 272, 32
+  xy: 544, 80
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 small_brick_carved5
   rotate: false
-  xy: 320, 80
+  xy: 592, 80
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 small_brick_carved6
   rotate: false
-  xy: 320, 32
+  xy: 640, 80
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 small_brick_carved7
   rotate: false
-  xy: 368, 80
+  xy: 688, 80
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 small_brick_carved8
   rotate: false
-  xy: 368, 32
+  xy: 736, 80
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 small_brick_smooth1
   rotate: false
-  xy: 416, 80
+  xy: 784, 80
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 small_brick_smooth2
   rotate: false
-  xy: 464, 80
+  xy: 832, 80
   size: 48, 48
   orig: 48, 48
   offset: 0, 0

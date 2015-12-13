@@ -52,6 +52,7 @@ data class BlockType(val textureBaseName : String? = null,
         val blockTypes = ArrayList<BlockType>()
 
         val AIR = add(BlockType(solid = false))
+        val GROUND = add(BlockType("ground"))
         val SMALL_BRICK = add(BlockType("small_brick"))
         val SMALL_BRICK_CARVED = add(BlockType("small_brick_carved"))
         val SMALL_BRICK_SMOOTH = add(BlockType("small_brick_smooth"))

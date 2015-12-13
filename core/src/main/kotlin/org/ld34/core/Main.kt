@@ -42,8 +42,8 @@ class Main : ApplicationListener {
 
         // Create map
         val gameMap = GameMap(arrayListOf(
-                GroundGenerator(BlockType.SMALL_BRICK_SMOOTH),
-                PillarGenerator(BlockType.SMALL_BRICK, BlockType.SMALL_BRICK_CARVED)))
+                GroundGenerator(BlockType.GROUND),
+                PillarGenerator(BlockType.SMALL_BRICK, BlockType.GROUND)))
 
         // Create map renderer
         mapArea = MutableRectangle(Gdx.graphics.width.toDouble(),
