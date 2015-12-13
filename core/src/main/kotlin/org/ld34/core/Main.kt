@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.flowutils.random.RandomSequence
 import org.flowutils.random.XorShift
+import org.ld34.core.map.BlockType
 
 
 class Main : ApplicationListener {
@@ -22,7 +23,10 @@ class Main : ApplicationListener {
         println("Main.create test")
 
         val atlas = TextureAtlas(Gdx.files.internal("textures/textures.atlas"))
-        ground = atlas.findRegion("jungle_ground")
+
+        BlockType.init(atlas)
+
+        ground = atlas.findRegion("small_brick_carved1")
         plant_stem = atlas.findRegion("plant_stem")
         plant_leaf1 = atlas.findRegion("plant_leaf1")
         plant_leaf2 = atlas.findRegion("plant_leaf2")
@@ -43,11 +47,13 @@ class Main : ApplicationListener {
         batch?.begin()
 
         val tileSize = 128f
+        val tileW = 64f
+        val tileH = 32f
         for (cy in 0..100) {
             for (cx in 0..100) {
-                val x = cx * tileSize
-                val y = cy * tileSize
-                batch?.draw(ground, x, y, tileSize, tileSize)
+                val x = cx * tileW + cy * tileH
+                val y = cy * tileW + cx * tileH
+                batch?.draw(BlockType.SMALL_BRICK_CARVED.getTexture(cx, cy), x, y, tileSize, tileSize)
             }
         }
 
