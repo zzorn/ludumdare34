@@ -2,6 +2,7 @@ package org.ld34.core.map
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas
 import com.badlogic.gdx.graphics.g2d.TextureRegion
+import org.ld34.core.util.Int3
 import org.ld34.core.util.WeightedDistribution
 import java.util.*
 
