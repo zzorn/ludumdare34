@@ -1,4 +1,4 @@
-package org.ld34.core.map
+package org.ld34.core.util
 
 import com.badlogic.gdx.math.Vector3
 import org.flowutils.MathUtils
@@ -9,6 +9,8 @@ import org.flowutils.MathUtils
 data class Int3(var x: Int = 0,
                 var y: Int = 0,
                 var z: Int = 0) {
+
+    constructor(other: Int3): this(other.x, other.y, other.z)
 
     fun zero() {
         x = 0

@@ -1,8 +1,7 @@
 package org.ld34.core.map.render
 
 import org.ld34.core.map.GameMap
-import org.ld34.core.map.render.MapCamera
-import org.ld34.core.map.Rendering
+import org.ld34.core.util.Rendering
 
 /**
  *

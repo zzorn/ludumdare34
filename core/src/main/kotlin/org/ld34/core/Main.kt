@@ -6,23 +6,28 @@ import com.badlogic.gdx.graphics.GL30
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.graphics.g2d.TextureAtlas
 import com.badlogic.gdx.graphics.g2d.TextureRegion
-import org.flowutils.random.RandomSequence
-import org.flowutils.random.XorShift
 import org.ld34.core.map.BlockType
+import org.ld34.core.map.GameMap
+import org.ld34.core.map.generators.GroundGenerator
+import org.ld34.core.map.render.IsometricMapRenderer
+import org.ld34.core.map.render.MapRenderer
 
 
 class Main : ApplicationListener {
-    internal var batch: SpriteBatch? = null
+    private lateinit var batch: SpriteBatch
     internal var elapsed: Float = 0.toFloat()
     internal var ground: TextureRegion? = null
     internal var plant_stem: TextureRegion? = null
     internal var plant_leaf1: TextureRegion? = null
     internal var plant_leaf2: TextureRegion? = null
 
+    private lateinit var mapRenderer: MapRenderer
+    private lateinit var atlas: TextureAtlas
+
     override fun create() {
         println("Main.create test")
 
-        val atlas = TextureAtlas(Gdx.files.internal("textures/textures.atlas"))
+        atlas = TextureAtlas(Gdx.files.internal("textures/textures.atlas"))
 
         BlockType.init(atlas)
 
@@ -30,6 +35,12 @@ class Main : ApplicationListener {
         plant_stem = atlas.findRegion("plant_stem")
         plant_leaf1 = atlas.findRegion("plant_leaf1")
         plant_leaf2 = atlas.findRegion("plant_leaf2")
+
+        // Create map
+        val gameMap = GameMap(arrayListOf(GroundGenerator(BlockType.SMALL_BRICK)))
+
+        // Create map renderer
+        mapRenderer = IsometricMapRenderer(gameMap)
 
         println("Main.create - pic loaded")
         batch = SpriteBatch()
@@ -44,8 +55,11 @@ class Main : ApplicationListener {
         Gdx.gl.glClearColor(0f, 0f, 0f, 0f)
         Gdx.gl.glClear(GL30.GL_COLOR_BUFFER_BIT)
 
-        batch?.begin()
+        batch.begin()
 
+        mapRenderer.render(batch, atlas)
+
+        /*
         val tileSize = 128f
         val tileW = 64f
         val tileH = 32f
@@ -77,8 +91,9 @@ class Main : ApplicationListener {
                 batch?.draw(plant_leaf1, x-40+ random.nextFloat(0f, 10f), y+random.nextFloat(0f, 60f))
             }
         }
+        */
 
-        batch?.end()
+        batch.end()
     }
 
     override fun pause() {

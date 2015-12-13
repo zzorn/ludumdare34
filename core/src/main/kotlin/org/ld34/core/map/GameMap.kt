@@ -1,24 +1,19 @@
 package org.ld34.core.map
 
+import org.ld34.core.map.generators.MapGenerator
+import org.ld34.core.util.Int3
 import java.util.*
 
 /**
  *
  */
-class GameMap {
-
-    val chunkSize: Int3 = Int3(128, 128, 9)
-
-    private val generators: MutableList<MapGenerator> = ArrayList()
+class GameMap(val generators: MutableList<MapGenerator> = ArrayList(),
+              val chunkSize: Int3 = Int3(128, 128, 9)) {
 
     // TODO: Remove oldest chunks? Save objects in them?
     private val chunkCache: MutableMap<Int3, MapChunk> = LinkedHashMap()
 
-    fun addGenerator(generator: MapGenerator) {
-        generators.add(generator)
-    }
-
-    fun get(pos: Int3): Tile? = getMapChunkAtPos(pos).getTile(pos)
+    fun get(pos: Int3): Tile? = getMapChunkAtPos(pos)[pos]
 
 
     fun getMapChunkAtPos(pos: Int3): MapChunk {

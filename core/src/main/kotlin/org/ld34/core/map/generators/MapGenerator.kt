@@ -1,4 +1,6 @@
-package org.ld34.core.map
+package org.ld34.core.map.generators
+
+import org.ld34.core.map.MapChunk
 
 /**
  * Generates game maps, chunk by chunk
@@ -6,5 +8,6 @@ package org.ld34.core.map
 interface MapGenerator {
 
     fun populate(chunk: MapChunk)
+
 
 }

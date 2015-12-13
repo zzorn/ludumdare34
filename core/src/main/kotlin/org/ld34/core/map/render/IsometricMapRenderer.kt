@@ -11,6 +11,9 @@ class IsometricMapRenderer(override var gameMap: GameMap,
                            override var camera: MapCamera = MapCamera()) : MapRenderer {
 
     override fun render(batch: SpriteBatch, atlas: TextureAtlas) {
+
+        // TODO: Render map
+
         throw UnsupportedOperationException()
     }
 }
